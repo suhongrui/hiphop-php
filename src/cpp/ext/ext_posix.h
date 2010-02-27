@@ -39,9 +39,7 @@ inline int f_posix_get_last_error() {
 }
 
 inline String f_posix_getcwd() {
-  char *buffer = (char *)malloc(PATH_MAX);
-  getcwd(buffer, PATH_MAX);
-  return String(buffer, AttachString);
+  return String(getcwd(NULL, PATH_MAX), AttachString);
 }
 
 inline int f_posix_getegid() {
